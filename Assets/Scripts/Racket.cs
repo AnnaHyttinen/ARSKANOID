@@ -5,10 +5,17 @@ using UnityEngine;
 
 public class Racket : MonoBehaviour
 {
-    public float speed = 150f;
-    private void FixedUpdate()
+    public Rigidbody2D rb;
+    Vector3 mousePosition;
+
+    private void Update()
     {
-        float r = Input.GetAxisRaw("Horizontal");
-        GetComponent<Rigidbody2D>().velocity = Vector2.right * r * speed;
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition = new Vector3(mousePosition.x, -120, 0);
+
+        if (rb != null)
+        {
+            rb.MovePosition(mousePosition);
+        }
     }
 }
