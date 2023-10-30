@@ -7,6 +7,7 @@ TagManager:
   - Floor
   - Tile
   - Stat
+  - PowerUp
   layers:
   - Default
   - TransparentFX

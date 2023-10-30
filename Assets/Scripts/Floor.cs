@@ -5,22 +5,39 @@ using UnityEngine.UI;
 
 public class Floor : MonoBehaviour
 {
-    public int life = 3;
+    //introducing variables for the use of UI:
+    public int life;
     public GameObject text;
+
+    //getting the ball object in case of game over:
+    public GameObject ball;
+
     private void Start()
     {
+        //establishing the text element:
         this.text.GetComponent<Text>().text = "Life " + life;
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        life -= 1;
-        if (life <= 0)
+        if (collision.gameObject.tag == "Player")
         {
-            this.text.GetComponent<Text>().text = "Game Over";
+            //the floor detector of death:
+            life -= 1;
+
+            if (life <= 0)
+            {
+                this.text.GetComponent<Text>().text = "Game Over";
+                Destroy(ball);
+            }
+            else
+            {
+                this.text.GetComponent<Text>().text = "Life " + life;
+            }
         }
         else
         {
-            this.text.GetComponent<Text>().text = "Life " + life;
+            Destroy(collision.gameObject);
         }
     }
 }
