@@ -5,12 +5,13 @@ using static UnityEditor.FilePathAttribute;
 
 public class Ball : MonoBehaviour
 {
-    //introducing variables for speed, hit count, tile count, location and power up: 
+    //introducing variables: 
     public float speed = 120.0f;
     private int hitCount;
     private int tileCount;
     public GameObject powerUp;
     private Vector3 location;
+    public AudioSource sound;
 
     private void Start()
     {
@@ -32,6 +33,9 @@ public class Ball : MonoBehaviour
         //rules for colliding with a tile:
         if(collision.gameObject.tag == "Tile")
         {
+            sound = GetComponent<AudioSource>();
+            sound.Play();
+
             //speeding up the ball:
             hitCount += 1;
             if(hitCount >= 10)
@@ -42,11 +46,10 @@ public class Ball : MonoBehaviour
 
             //instantiating the power ups:
             tileCount++;
-            if (tileCount == 5)
+            if (tileCount == 7)
             {
                 location = transform.position;
                 Instantiate(powerUp, location, Quaternion.identity);
-                //GetComponent<Rigidbody2D>().velocity = Vector2.up * speed;
                 tileCount = 0;
             }
         }
