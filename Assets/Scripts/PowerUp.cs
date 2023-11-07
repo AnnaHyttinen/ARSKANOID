@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.FilePathAttribute;
 using Random = UnityEngine.Random;
 
 public class PowerUp : MonoBehaviour
@@ -9,6 +10,8 @@ public class PowerUp : MonoBehaviour
     private Color color;
     private int state;
     private float targetTime = 1f;
+    public Floor floor;
+    public Ball ball;
 
     void Update()
     {
@@ -36,32 +39,6 @@ public class PowerUp : MonoBehaviour
         }
     }
 
-    void Actions()
-    {
-        sprite = GetComponentInChildren<SpriteRenderer>();
-        
-        if (sprite.color == Color.green)
-        {
-            //extra life
-        }
-        if (sprite.color == Color.blue)
-        {
-            //slow ball
-        }
-        if (sprite.color == Color.red)
-        {
-            //fast ball
-        }
-        if (sprite.color == Color.cyan)
-        {
-            //explosive ball
-        }
-        if (sprite.color == Color.white)
-        {
-            //rain to melt tiles
-        }
-    }
-
     void TimerEnded()
     {
         sprite = GetComponentInChildren<SpriteRenderer>();
@@ -84,6 +61,39 @@ public class PowerUp : MonoBehaviour
             case 4:
                 sprite.color = Color.white;
                 break;
+        }
+    }
+
+    void Actions()
+    {
+        sprite = GetComponentInChildren<SpriteRenderer>();
+
+        if (sprite.color == Color.green)
+        {
+            Debug.Log("life");
+            floor.life +=1;
+        }
+        if (sprite.color == Color.blue)
+        {
+            Debug.Log("slow");
+            ball.speed = 80.0f;
+        }
+        if (sprite.color == Color.red)
+        {
+            Debug.Log("fast");
+            ball.speed = 180.0f;
+        }
+        if (sprite.color == Color.cyan)
+        {
+            Debug.Log("explosive");
+            ball.Explosive();
+        }
+        if (sprite.color == Color.white)
+        {
+            Debug.Log("rain");
+            //private Vector3 location;
+            //location = transform.position;
+            //Instantiate(powerUp, location, Quaternion.identity);
         }
     }
 }

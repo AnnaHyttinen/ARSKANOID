@@ -72,4 +72,9 @@ public class Ball : MonoBehaviour
     {
         return (ballPos.x - racketPos.x) / racketWidth;
     }
+
+    public void Explosive()
+    {
+        Debug.Log("EXPL");
+    }
 }
