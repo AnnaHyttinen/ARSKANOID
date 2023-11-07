@@ -60,6 +60,8 @@ public class Ball : MonoBehaviour
             //resetting the position of the ball: 
             transform.position = new Vector3(2, -85, 0);
 
+            speed = 120.0f;
+
             //pushing the ball back to movement: 
             GetComponent<Rigidbody2D>().velocity = Vector2.up * speed;
         }

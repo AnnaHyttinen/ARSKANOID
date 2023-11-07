@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PowerUp : MonoBehaviour
 {
     private SpriteRenderer sprite;
     private Color color;
     private int state;
-    public float targetTime = 10f;
+    private float targetTime = 1f;
 
     void Update()
     {
@@ -16,6 +17,7 @@ public class PowerUp : MonoBehaviour
         if (targetTime <= 0.0f)
         {
             TimerEnded();
+            targetTime = 1.0f;
         }
     }
 
@@ -24,7 +26,7 @@ public class PowerUp : MonoBehaviour
         //actions when hitting a tile or a ball: ... wait a minute!
         if (collision.gameObject.name == "Racket")
         {
-            Debug.Log("Gotcha!");
+            Actions();
             Destroy(gameObject);
         }
 
@@ -34,29 +36,53 @@ public class PowerUp : MonoBehaviour
         }
     }
 
+    void Actions()
+    {
+        sprite = GetComponentInChildren<SpriteRenderer>();
+        
+        if (sprite.color == Color.green)
+        {
+            //extra life
+        }
+        if (sprite.color == Color.blue)
+        {
+            //slow ball
+        }
+        if (sprite.color == Color.red)
+        {
+            //fast ball
+        }
+        if (sprite.color == Color.cyan)
+        {
+            //explosive ball
+        }
+        if (sprite.color == Color.white)
+        {
+            //rain to melt tiles
+        }
+    }
+
     void TimerEnded()
     {
         sprite = GetComponentInChildren<SpriteRenderer>();
-        color = sprite.color;
         state = Random.Range(0, 4);
-        Debug.Log(state);
 
         switch (state)
         {
             case 0:
-                color = Color.green;
+                sprite.color = Color.green;
                 break;
             case 1:
-                color = Color.blue;
+                sprite.color = Color.blue;
                 break;
             case 2:
-                color = Color.red;
+                sprite.color = Color.red;
                 break;
             case 3:
-                color = Color.cyan;
+                sprite.color = Color.cyan;
                 break;
             case 4:
-                color = Color.white;
+                sprite.color = Color.white;
                 break;
         }
     }
