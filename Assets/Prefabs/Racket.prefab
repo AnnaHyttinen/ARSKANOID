@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 897404455783347776}
   - component: {fileID: 6512497441065508958}
   - component: {fileID: 5964173128264593522}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Racket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,4 +171,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08c6762ff38bed541b73ee95b6f45ddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  rb: {fileID: 0}

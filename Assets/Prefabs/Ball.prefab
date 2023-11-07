@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 731367910325898970}
   - component: {fileID: 3019667808850506219}
   - component: {fileID: 3895684801192244777}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,3 +162,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 120
+  powerUp: {fileID: 0}
+  sound: {fileID: 0}
