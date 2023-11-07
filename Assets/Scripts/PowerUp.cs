@@ -10,8 +10,10 @@ public class PowerUp : MonoBehaviour
     private Color color;
     private int state;
     private float targetTime = 1f;
-    public Floor floor;
-    public Ball ball;
+    private Vector3 location;
+    public GameObject rain;
+    public GameObject floor;
+    public GameObject ball;
 
     void Update()
     {
@@ -42,7 +44,7 @@ public class PowerUp : MonoBehaviour
     void TimerEnded()
     {
         sprite = GetComponentInChildren<SpriteRenderer>();
-        state = Random.Range(0, 4);
+        state = Random.Range(0, 5);
 
         switch (state)
         {
@@ -71,29 +73,36 @@ public class PowerUp : MonoBehaviour
         if (sprite.color == Color.green)
         {
             Debug.Log("life");
-            floor.life +=1;
+            //floor.life +=1;
         }
         if (sprite.color == Color.blue)
         {
             Debug.Log("slow");
-            ball.speed = 80.0f;
+            //ball.speed = 80.0f;
         }
         if (sprite.color == Color.red)
         {
             Debug.Log("fast");
-            ball.speed = 180.0f;
+            //ball.speed = 180.0f;
         }
         if (sprite.color == Color.cyan)
         {
             Debug.Log("explosive");
-            ball.Explosive();
+            //ball....;
         }
         if (sprite.color == Color.white)
         {
             Debug.Log("rain");
-            //private Vector3 location;
-            //location = transform.position;
-            //Instantiate(powerUp, location, Quaternion.identity);
+            location = new Vector3(Random.Range(-133, 133), Random.Range(110, 120), 0);
+            Instantiate(rain, location, Quaternion.identity);
+            location = new Vector3(Random.Range(-133, 133), Random.Range(110, 120), 0);
+            Instantiate(rain, location, Quaternion.identity);
+            location = new Vector3(Random.Range(-133, 133), Random.Range(110, 120), 0);
+            Instantiate(rain, location, Quaternion.identity);
+            location = new Vector3(Random.Range(-133, 133), Random.Range(110, 120), 0);
+            Instantiate(rain, location, Quaternion.identity);
+            location = new Vector3(Random.Range(-133, 133), Random.Range(110, 120), 0);
+            Instantiate(rain, location, Quaternion.identity);
         }
     }
 }
