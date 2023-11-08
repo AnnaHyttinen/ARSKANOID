@@ -14,6 +14,7 @@ public class PowerUp : MonoBehaviour
     public GameObject rain; //attached to rain
     public GameObject floor; //attached to background
     public GameObject ball; //attached to a ball
+    public Component scriptFloor;
 
     void Update()
     {
@@ -93,16 +94,18 @@ public class PowerUp : MonoBehaviour
         if (sprite.color == Color.white)
         {
             Debug.Log("rain");
-            location = new Vector3(Random.Range(-133, 133), Random.Range(110, 120), 0);
-            Instantiate(rain, location, Quaternion.identity);
-            location = new Vector3(Random.Range(-133, 133), Random.Range(110, 120), 0);
-            Instantiate(rain, location, Quaternion.identity);
-            location = new Vector3(Random.Range(-133, 133), Random.Range(110, 120), 0);
-            Instantiate(rain, location, Quaternion.identity);
-            location = new Vector3(Random.Range(-133, 133), Random.Range(110, 120), 0);
-            Instantiate(rain, location, Quaternion.identity);
-            location = new Vector3(Random.Range(-133, 133), Random.Range(110, 120), 0);
-            Instantiate(rain, location, Quaternion.identity);
+
+            Rain();
+            Rain();
+            Rain();
+            Rain();
+            Rain();
         }
+    }
+
+    void Rain()
+    {
+        location = new Vector3(Random.Range(-133, 133), Random.Range(110, 120), -3);
+        Instantiate(rain, location, Quaternion.identity);
     }
 }
