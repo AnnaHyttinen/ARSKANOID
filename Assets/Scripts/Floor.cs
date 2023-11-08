@@ -15,7 +15,7 @@ public class Floor : MonoBehaviour
     private void Start()
     {
         //establishing the text element:
-        this.text.GetComponent<Text>().text = "Life " + life;
+        text.GetComponent<Text>().text = "Life " + life;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

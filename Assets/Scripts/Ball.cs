@@ -6,7 +6,7 @@ using static UnityEditor.FilePathAttribute;
 public class Ball : MonoBehaviour
 {
     //introducing variables: 
-    public float speed = 120.0f;
+    public float speed;
     private int hitCount;
     private int tileCount;
     public GameObject powerUp;
@@ -17,6 +17,7 @@ public class Ball : MonoBehaviour
     private void Start()
     {
         explosive = false;
+        speed = 120.0f;
 
         //giving a push for a ball to begin with:
         GetComponent<Rigidbody2D>().velocity = Vector2.up * speed;

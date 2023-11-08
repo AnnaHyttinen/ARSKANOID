@@ -23,6 +23,7 @@ public class Tile : MonoBehaviour
         //actions when hitting a tile:
         if (collision.gameObject.tag == "Player")
         {
+            //defining health and adjusting opacity
             health -= 1;
             Color oldColor = spr.color;
             Color newColor = new Color(oldColor.r, oldColor.g, oldColor.b, oldColor.a - 0.2f);

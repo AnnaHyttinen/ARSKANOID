@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEditor.FilePathAttribute;
 using Random = UnityEngine.Random;
 
@@ -69,26 +71,28 @@ public class PowerUp : MonoBehaviour
     void Actions()
     {
         sprite = GetComponentInChildren<SpriteRenderer>();
+        floor.GetComponent<Floor>().enabled = true;
+        ball.GetComponent<Ball>().enabled = true;
 
         if (sprite.color == Color.green)
         {
-            Debug.Log("life");
-            //floor.life += 1;
+            Debug.Log("Life");
+            floor.GetComponent<Floor>().life += 1;
         }
         if (sprite.color == Color.blue)
         {
-            Debug.Log("slow");
-            //ball.speed = 80.0f;
+            Debug.Log("Fast");
+            ball.GetComponent<Ball>().speed -= 60.0f;
         }
         if (sprite.color == Color.red)
         {
             Debug.Log("fast");
-            //ball.speed = 180.0f;
+            ball.GetComponent<Ball>().speed += 60.0f;
         }
         if (sprite.color == Color.cyan)
         {
             Debug.Log("explosive");
-            //ball.explosive = true;
+            ball.GetComponent<Ball>().explosive = true;
         }
         if (sprite.color == Color.white)
         {
