@@ -11,9 +11,9 @@ public class PowerUp : MonoBehaviour
     private int state;
     private float targetTime = 1f;
     private Vector3 location;
-    public GameObject rain;
-    public GameObject floor;
-    public GameObject ball;
+    public GameObject rain; //attached to rain
+    public GameObject floor; //attached to background
+    public GameObject ball; //attached to a ball
 
     void Update()
     {
