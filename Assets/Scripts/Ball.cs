@@ -12,9 +12,12 @@ public class Ball : MonoBehaviour
     public GameObject powerUp;
     private Vector3 location;
     public AudioSource sound;
+    public bool explosive;
 
     private void Start()
     {
+        explosive = false;
+
         //giving a push for a ball to begin with:
         GetComponent<Rigidbody2D>().velocity = Vector2.up * speed;
     }
@@ -31,6 +34,20 @@ public class Ball : MonoBehaviour
         }
 
         //rules for colliding with a tile:
+        if(collision.gameObject.name == "Tile" && explosive)
+        {
+            //explosive events
+            speed = 160f;
+            hitCount = 0;
+            Debug.Log("Explosive events!");
+
+            //disabling explosive
+            if(hitCount >= 5)
+            {
+                explosive = false;
+            }
+        }
+
         if(collision.gameObject.tag == "Tile")
         {
             sound = GetComponent<AudioSource>();

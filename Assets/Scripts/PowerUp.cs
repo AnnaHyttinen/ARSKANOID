@@ -14,7 +14,6 @@ public class PowerUp : MonoBehaviour
     public GameObject rain; //attached to rain
     public GameObject floor; //attached to background
     public GameObject ball; //attached to a ball
-    public Component scriptFloor;
 
     void Update()
     {
@@ -74,7 +73,7 @@ public class PowerUp : MonoBehaviour
         if (sprite.color == Color.green)
         {
             Debug.Log("life");
-            //floor.life +=1;
+            //floor.life += 1;
         }
         if (sprite.color == Color.blue)
         {
@@ -89,7 +88,7 @@ public class PowerUp : MonoBehaviour
         if (sprite.color == Color.cyan)
         {
             Debug.Log("explosive");
-            //ball....;
+            //ball.explosive = true;
         }
         if (sprite.color == Color.white)
         {
