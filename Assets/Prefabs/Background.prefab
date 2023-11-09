@@ -999,7 +999,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 5
   text: {fileID: 1712656509357316147}
-  ball: {fileID: 0}
+  ball: {fileID: 4971522526152325672, guid: 027f922dc70952047aeb5cb157ad2f66, type: 3}
 --- !u!1 &7362061630970082642
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,6 +1141,7 @@ GameObject:
   - component: {fileID: 1994630273141853144}
   - component: {fileID: 8530371851750106327}
   - component: {fileID: -2099285090047077297}
+  - component: {fileID: 4227697999501723131}
   m_Layer: 3
   m_Name: Background
   m_TagString: Untagged
@@ -1235,6 +1236,21 @@ MonoBehaviour:
   life: 0
   text: {fileID: 1712656509357316147}
   ball: {fileID: 4971522526152325672, guid: 027f922dc70952047aeb5cb157ad2f66, type: 3}
+--- !u!114 &4227697999501723131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7586572407361669721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8d17d1992641e64f936497bf01113f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rain: {fileID: 471069433433647016, guid: 5830fce0fe9d3614791b33fe7a99c29a, type: 3}
+  floor: {fileID: 0}
+  ball: {fileID: 0}
 --- !u!1 &8688651692418379981
 GameObject:
   m_ObjectHideFlags: 0

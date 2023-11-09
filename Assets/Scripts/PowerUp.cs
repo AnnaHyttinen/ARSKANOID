@@ -8,17 +8,22 @@ using Random = UnityEngine.Random;
 
 public class PowerUp : MonoBehaviour
 {
+    //variables for changing color, randomizing state and setting a timer
     private SpriteRenderer sprite;
-    private Color color;
     private int state;
     private float targetTime = 1f;
+
+    //variables for spawning of the rain
     private Vector3 location;
-    public GameObject rain; //attached to rain
-    public GameObject floor; //attached to background
-    public GameObject ball; //attached to a ball
+    public GameObject rain;
+
+    //variables to access other scripts
+    public Floor floor;
+    public Ball ball;
 
     void Update()
     {
+        //setting up a timer for a power up color change
         targetTime -= Time.deltaTime;
 
         if (targetTime <= 0.0f)
@@ -30,7 +35,7 @@ public class PowerUp : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //actions when hitting a tile or a ball: ... wait a minute!
+        //destroying the power up -object and taking actions needed
         if (collision.gameObject.name == "Racket")
         {
             Actions();
@@ -45,6 +50,7 @@ public class PowerUp : MonoBehaviour
 
     void TimerEnded()
     {
+        //determining the color for a power up
         sprite = GetComponentInChildren<SpriteRenderer>();
         state = Random.Range(0, 5);
 
@@ -71,8 +77,10 @@ public class PowerUp : MonoBehaviour
     void Actions()
     {
         sprite = GetComponentInChildren<SpriteRenderer>();
-        floor.GetComponent<Floor>().enabled = true;
-        ball.GetComponent<Ball>().enabled = true;
+
+        //floor.GetComponent<Floor>().enabled = true;
+        //ball.GetComponent<Ball>().enabled = true;
+
 
         if (sprite.color == Color.green)
         {
@@ -98,11 +106,7 @@ public class PowerUp : MonoBehaviour
         {
             Debug.Log("rain");
 
-            Rain();
-            Rain();
-            Rain();
-            Rain();
-            Rain();
+            Rain(); Rain(); Rain(); Rain(); Rain();
         }
     }
 
