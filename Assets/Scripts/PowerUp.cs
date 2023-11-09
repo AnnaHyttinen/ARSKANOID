@@ -20,6 +20,12 @@ public class PowerUp : MonoBehaviour
     //variables to access other scripts
     public Floor floor;
     public Ball ball;
+    private GameManager gameManager;
+
+    private void Start()
+    {
+        gameManager = GameManager.manager;
+    }
 
     void Update()
     {
@@ -78,14 +84,14 @@ public class PowerUp : MonoBehaviour
     {
         sprite = GetComponentInChildren<SpriteRenderer>();
 
-        //floor.GetComponent<Floor>().enabled = true;
-        //ball.GetComponent<Ball>().enabled = true;
+        floor.GetComponent<Floor>().enabled = true;
+        ball.GetComponent<Ball>().enabled = true;
 
 
         if (sprite.color == Color.green)
         {
             Debug.Log("Life");
-            floor.GetComponent<Floor>().life += 1;
+            gameManager.life += 1;
         }
         if (sprite.color == Color.blue)
         {
