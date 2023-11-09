@@ -91,18 +91,19 @@ public class PowerUp : MonoBehaviour
         }
         if (sprite.color == Color.blue)
         {
-            Debug.Log("Fast");
-            gameManager.speed -= 60.0f;
+            Debug.Log("Slow");
+            gameManager.speed = 80.0f;
         }
         if (sprite.color == Color.red)
         {
             Debug.Log("fast");
-            gameManager.speed += 60.0f;
+            gameManager.speed = 180.0f;
         }
         if (sprite.color == Color.cyan)
         {
             Debug.Log("explosive");
             gameManager.explosive = true;
+            gameManager.speed = 160f;
         }
         if (sprite.color == Color.white)
         {

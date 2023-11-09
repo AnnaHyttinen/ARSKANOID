@@ -9,9 +9,11 @@ public class Ball : MonoBehaviour
     private GameManager gameManager;
     private int hitCount;
     private int tileCount;
+    private int explosiveCount;
     public GameObject powerUp;
     private Vector3 location;
     public AudioSource sound;
+    private Color color;
 
     private void Start()
     {
@@ -19,8 +21,20 @@ public class Ball : MonoBehaviour
         gameManager.explosive = false;
         gameManager.speed = 120.0f;
 
+        explosiveCount = 0;
+
         //giving a push for a ball to begin with:
         GetComponent<Rigidbody2D>().velocity = Vector2.up * gameManager.speed;
+
+        color = GetComponent<SpriteRenderer>().color;
+    }
+
+    private void Update()
+    {
+        if (gameManager.explosive)
+        {
+            GetComponent<SpriteRenderer>().color = Color.red;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -35,17 +49,19 @@ public class Ball : MonoBehaviour
         }
 
         //rules for colliding with a tile:
-        if(collision.gameObject.name == "Tile" && gameManager.explosive)
+        if(collision.gameObject.name == "Tile" && gameManager.explosive == true)
         {
             //explosive events
-            gameManager.speed = 160f;
-            hitCount = 0;
-            Debug.Log("Explosive events!");
-
-            //disabling explosive
-            if(hitCount >= 5)
+            if(explosiveCount < 5)
+            {
+                explosiveCount++;
+                Debug.Log("Explosive events!");
+            }
+            else
             {
                 gameManager.explosive = false;
+                gameManager.speed = 100;
+                explosiveCount = 0;
             }
         }
 
@@ -78,7 +94,7 @@ public class Ball : MonoBehaviour
             //resetting the position of the ball: 
             transform.position = new Vector3(2, -85, 0);
 
-            gameManager.speed = 120.0f;
+            gameManager.speed = 100.0f;
 
             //pushing the ball back to movement: 
             GetComponent<Rigidbody2D>().velocity = Vector2.up * gameManager.speed;
