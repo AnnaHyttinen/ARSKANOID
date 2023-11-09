@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using static UnityEditor.FilePathAttribute;
@@ -13,8 +14,6 @@ public class Ball : MonoBehaviour
     private int tileCount;
     private int explosiveCount;
 
-    private int radius;
-
     public GameObject powerUp;
     private Vector3 location;
     public AudioSource sound;
@@ -27,7 +26,6 @@ public class Ball : MonoBehaviour
         gameManager.speed = 120.0f;
 
         explosiveCount = 0;
-        radius = 500;
         sound = GetComponent<AudioSource>();
 
         //giving a push for a ball to begin with:
@@ -66,16 +64,14 @@ public class Ball : MonoBehaviour
             //explosive events
             if (explosiveCount < 5)
             {
-                Collider[] nearObjects = Physics.OverlapSphere(transform.position, radius);
-                //Return an array of all the colliders within a certain radius of some obj.
-                Debug.Log(nearObjects);
-
-                foreach (Collider tile in nearObjects) {
-                    //Iterate through the array
-
-                    if (tile.tag == "Tile") //Does the object have a certain tag.
-                        Destroy(tile.gameObject);
-                    //If yes, then Destroy the gameObject the collider is attached to
+                GameObject[] tiles = GameObject.FindGameObjectsWithTag("Tile");
+                foreach (GameObject tile in tiles)
+                {
+                    if(tile.transform.position.x-collision.transform.position.x<0.5 && 
+                        tile.transform.position.y-collision.transform.position.y<0.5)
+                    {
+                        Destroy(tile);
+                    }
                 }
                 explosiveCount++;
             }

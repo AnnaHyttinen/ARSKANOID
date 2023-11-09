@@ -88,16 +88,19 @@ public class PowerUp : MonoBehaviour
         {
             Debug.Log("Life");
             gameManager.life += 1;
+            gameManager.explosive = true;
         }
         if (sprite.color == Color.blue)
         {
             Debug.Log("Slow");
-            gameManager.speed = 80.0f;
+            gameManager.speed = 100.0f;
+            gameManager.explosive = true;
         }
         if (sprite.color == Color.red)
         {
             Debug.Log("fast");
             gameManager.speed = 180.0f;
+            gameManager.explosive = true;
         }
         if (sprite.color == Color.cyan)
         {
@@ -107,8 +110,8 @@ public class PowerUp : MonoBehaviour
         }
         if (sprite.color == Color.white)
         {
+            gameManager.explosive = true;
             Debug.Log("rain");
-
             Rain(); Rain(); Rain(); Rain(); Rain();
         }
     }
