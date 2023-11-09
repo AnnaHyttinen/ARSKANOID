@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour
     public static GameManager manager;
 
     public int life;
+    public float speed;
+    public bool explosive;
 
     private void Awake()
     {

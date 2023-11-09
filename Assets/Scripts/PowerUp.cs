@@ -84,10 +84,6 @@ public class PowerUp : MonoBehaviour
     {
         sprite = GetComponentInChildren<SpriteRenderer>();
 
-        floor.GetComponent<Floor>().enabled = true;
-        ball.GetComponent<Ball>().enabled = true;
-
-
         if (sprite.color == Color.green)
         {
             Debug.Log("Life");
@@ -96,17 +92,17 @@ public class PowerUp : MonoBehaviour
         if (sprite.color == Color.blue)
         {
             Debug.Log("Fast");
-            ball.GetComponent<Ball>().speed -= 60.0f;
+            gameManager.speed -= 60.0f;
         }
         if (sprite.color == Color.red)
         {
             Debug.Log("fast");
-            ball.GetComponent<Ball>().speed += 60.0f;
+            gameManager.speed += 60.0f;
         }
         if (sprite.color == Color.cyan)
         {
             Debug.Log("explosive");
-            ball.GetComponent<Ball>().explosive = true;
+            gameManager.explosive = true;
         }
         if (sprite.color == Color.white)
         {

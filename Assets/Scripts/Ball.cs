@@ -6,21 +6,21 @@ using static UnityEditor.FilePathAttribute;
 public class Ball : MonoBehaviour
 {
     //introducing variables: 
-    public float speed;
+    private GameManager gameManager;
     private int hitCount;
     private int tileCount;
     public GameObject powerUp;
     private Vector3 location;
     public AudioSource sound;
-    public bool explosive;
 
     private void Start()
     {
-        explosive = false;
-        speed = 120.0f;
+        gameManager = GameManager.manager;
+        gameManager.explosive = false;
+        gameManager.speed = 120.0f;
 
         //giving a push for a ball to begin with:
-        GetComponent<Rigidbody2D>().velocity = Vector2.up * speed;
+        GetComponent<Rigidbody2D>().velocity = Vector2.up * gameManager.speed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -31,21 +31,21 @@ public class Ball : MonoBehaviour
             float x = hitFactor(transform.position, collision.transform.position, 
                 collision.collider.bounds.size.x);
             Vector2 dir = new Vector2(x, 1).normalized;
-            GetComponent<Rigidbody2D>().velocity = dir * speed;
+            GetComponent<Rigidbody2D>().velocity = dir * gameManager.speed;
         }
 
         //rules for colliding with a tile:
-        if(collision.gameObject.name == "Tile" && explosive)
+        if(collision.gameObject.name == "Tile" && gameManager.explosive)
         {
             //explosive events
-            speed = 160f;
+            gameManager.speed = 160f;
             hitCount = 0;
             Debug.Log("Explosive events!");
 
             //disabling explosive
             if(hitCount >= 5)
             {
-                explosive = false;
+                gameManager.explosive = false;
             }
         }
 
@@ -58,7 +58,7 @@ public class Ball : MonoBehaviour
             hitCount += 1;
             if(hitCount >= 10)
             {
-                speed += 20.0f;
+                gameManager.speed += 20.0f;
                 hitCount = 0;
             }
 
@@ -78,10 +78,10 @@ public class Ball : MonoBehaviour
             //resetting the position of the ball: 
             transform.position = new Vector3(2, -85, 0);
 
-            speed = 120.0f;
+            gameManager.speed = 120.0f;
 
             //pushing the ball back to movement: 
-            GetComponent<Rigidbody2D>().velocity = Vector2.up * speed;
+            GetComponent<Rigidbody2D>().velocity = Vector2.up * gameManager.speed;
         }
     }
 
