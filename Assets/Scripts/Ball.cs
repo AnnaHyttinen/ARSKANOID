@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 using static UnityEditor.FilePathAttribute;
 
 public class Ball : MonoBehaviour
 {
     //introducing variables: 
     private GameManager gameManager;
+
     private int hitCount;
     private int tileCount;
     private int explosiveCount;
+
+    private int radius;
+
     public GameObject powerUp;
     private Vector3 location;
     public AudioSource sound;
@@ -22,6 +27,8 @@ public class Ball : MonoBehaviour
         gameManager.speed = 120.0f;
 
         explosiveCount = 0;
+        radius = 500;
+        sound = GetComponent<AudioSource>();
 
         //giving a push for a ball to begin with:
         GetComponent<Rigidbody2D>().velocity = Vector2.up * gameManager.speed;
@@ -34,6 +41,10 @@ public class Ball : MonoBehaviour
         if (gameManager.explosive)
         {
             GetComponent<SpriteRenderer>().color = Color.red;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().color = color;
         }
     }
 
@@ -49,16 +60,28 @@ public class Ball : MonoBehaviour
         }
 
         //rules for colliding with a tile:
-        if(collision.gameObject.name == "Tile" && gameManager.explosive == true)
+        if(collision.gameObject.tag == "Tile" && gameManager.explosive == true)
         {
+            sound = GetComponent<AudioSource>();
             //explosive events
-            if(explosiveCount < 5)
+            if (explosiveCount < 5)
             {
+                Collider[] nearObjects = Physics.OverlapSphere(transform.position, radius);
+                //Return an array of all the colliders within a certain radius of some obj.
+                Debug.Log(nearObjects);
+
+                foreach (Collider tile in nearObjects) {
+                    //Iterate through the array
+
+                    if (tile.tag == "Tile") //Does the object have a certain tag.
+                        Destroy(tile.gameObject);
+                    //If yes, then Destroy the gameObject the collider is attached to
+                }
                 explosiveCount++;
-                Debug.Log("Explosive events!");
             }
             else
             {
+                Destroy(collision.gameObject);
                 gameManager.explosive = false;
                 gameManager.speed = 100;
                 explosiveCount = 0;
@@ -67,7 +90,6 @@ public class Ball : MonoBehaviour
 
         if(collision.gameObject.tag == "Tile")
         {
-            sound = GetComponent<AudioSource>();
             sound.Play();
 
             //speeding up the ball:
