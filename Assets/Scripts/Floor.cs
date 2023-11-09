@@ -12,13 +12,26 @@ public class Floor : MonoBehaviour
     //introducing the ball
     public GameObject ball;
 
+    private float time = 2f;
+
     private void Start()
     {
-        text = GetComponentInChildren<Floor>().text;
-        //establishing the text element:
-        text.GetComponent<Text>().text = "Life " + gameManager.life;
-
         gameManager = GameManager.manager;
+        //establishing the text element:
+        text = GetComponentInChildren<Floor>().text;
+        text.GetComponent<Text>().text = "Life " + gameManager.life;
+    }
+
+    void Update()
+    {
+        //setting up a timer for a power up color change
+        time -= Time.deltaTime;
+
+        if (time <= 0.0f)
+        {
+            text.GetComponent<Text>().text = "Life " + gameManager.life;
+            time = 2.0f;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -30,11 +43,13 @@ public class Floor : MonoBehaviour
 
             if (gameManager.life <= 0)
             {
+                //text = GetComponentInChildren<Floor>().text;
                 text.GetComponent<Text>().text = "Game Over";
                 Destroy(ball);
             }
             else
             {
+                //text = GetComponentInChildren<Floor>().text;
                 text.GetComponent<Text>().text = "Life " + gameManager.life;
             }
         }
