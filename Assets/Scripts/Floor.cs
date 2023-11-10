@@ -10,8 +10,9 @@ public class Floor : MonoBehaviour
     private GameManager gameManager;
     public GameObject text;
 
-    //introducing the ball
+    //introducing the ball, scene
     public GameObject ball;
+    private string scene;
 
     private float time = 2f;
     public string levelToLoad;
@@ -22,7 +23,8 @@ public class Floor : MonoBehaviour
         gameManager = GameManager.manager;
         //establishing the text element:
         text = GetComponentInChildren<Floor>().text;
-        text.GetComponent<Text>().text = "Life " + gameManager.life;
+
+        scene = SceneManager.GetActiveScene().name;
     }
 
     void Update()
@@ -30,7 +32,7 @@ public class Floor : MonoBehaviour
         //setting up a timer for a power up color change, refreshing UI etc
         time -= Time.deltaTime;
 
-        if (time <= 0.0f)
+        if (time <= 0.0f && scene != "Menu")
         {   
             //updating the UI
             text.GetComponent<Text>().text = "Life " + gameManager.life;
@@ -51,6 +53,12 @@ public class Floor : MonoBehaviour
             Pause();
             Debug.Log(pause);
         }
+
+        //checking for menu
+        if(Input.GetKeyDown(KeyCode.M)) 
+        {
+            gameManager.Level("Menu");
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -62,13 +70,11 @@ public class Floor : MonoBehaviour
 
             if (gameManager.life <= 0)
             {
-                //text = GetComponentInChildren<Floor>().text;
                 text.GetComponent<Text>().text = "Game Over";
                 Destroy(ball);
             }
             else
             {
-                //text = GetComponentInChildren<Floor>().text;
                 text.GetComponent<Text>().text = "Life " + gameManager.life;
             }
         }
