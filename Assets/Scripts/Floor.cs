@@ -15,6 +15,7 @@ public class Floor : MonoBehaviour
 
     private float time = 2f;
     public string levelToLoad;
+    public static bool pause;
 
     private void Start()
     {
@@ -26,19 +27,29 @@ public class Floor : MonoBehaviour
 
     void Update()
     {
-        //setting up a timer for a power up color change
+        //setting up a timer for a power up color change, refreshing UI etc
         time -= Time.deltaTime;
 
         if (time <= 0.0f)
-        {
+        {   
+            //updating the UI
             text.GetComponent<Text>().text = "Life " + gameManager.life;
             time = 2.0f;
 
+            //loading a new scene
             GameObject[] tiles = GameObject.FindGameObjectsWithTag("Tile");
             if (tiles.Length <= 0)
             {
                 gameManager.Level(levelToLoad);
             }
+        }
+
+        //checking for pause
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            pause = !pause;
+            Pause();
+            Debug.Log(pause);
         }
     }
 
@@ -64,6 +75,18 @@ public class Floor : MonoBehaviour
         else
         {
             Destroy(collision.gameObject);
+        }
+    }
+
+    void Pause()
+    {
+        if(pause)
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 1;
         }
     }
 }
