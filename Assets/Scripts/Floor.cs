@@ -30,7 +30,7 @@ public class Floor : MonoBehaviour
         if (time <= 0.0f)
         {
             text.GetComponent<Text>().text = "Life " + gameManager.life;
-            time = 2.0f;
+            time = 1.0f;
         }
     }
 
