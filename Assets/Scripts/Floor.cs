@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Floor : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Floor : MonoBehaviour
     public GameObject ball;
 
     private float time = 2f;
+    public string levelToLoad;
 
     private void Start()
     {
@@ -30,7 +32,13 @@ public class Floor : MonoBehaviour
         if (time <= 0.0f)
         {
             text.GetComponent<Text>().text = "Life " + gameManager.life;
-            time = 1.0f;
+            time = 2.0f;
+
+            GameObject[] tiles = GameObject.FindGameObjectsWithTag("Tile");
+            if (tiles.Length <= 0)
+            {
+                gameManager.Level(levelToLoad);
+            }
         }
     }
 

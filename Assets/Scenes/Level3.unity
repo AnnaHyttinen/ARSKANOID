@@ -1204,6 +1204,10 @@ PrefabInstance:
       propertyPath: ball
       value: 
       objectReference: {fileID: 61638865}
+    - target: {fileID: 7237398363717108072, guid: 507fb119cf4c6b14fbf68d56bbf9d59b, type: 3}
+      propertyPath: levelToLoad
+      value: Ending
+      objectReference: {fileID: 0}
     - target: {fileID: 7586572407361669721, guid: 507fb119cf4c6b14fbf68d56bbf9d59b, type: 3}
       propertyPath: m_Name
       value: Background
