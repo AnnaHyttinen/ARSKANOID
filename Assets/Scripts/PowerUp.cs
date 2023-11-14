@@ -35,7 +35,7 @@ public class PowerUp : MonoBehaviour
         if (targetTime <= 0.0f)
         {
             TimerEnded();
-            targetTime = 2.0f;
+            targetTime += 2f;
         }
     }
 
