@@ -62,15 +62,15 @@ public class Ball : MonoBehaviour
         {
             sound = GetComponent<AudioSource>();
             //explosive events: transform.position gives a relative location to the parent object, hence symmetry
-            if (explosiveCount < 5)
+            if (explosiveCount < 7)
             {
                 GameObject[] tiles = GameObject.FindGameObjectsWithTag("Tile");
                 foreach (GameObject tile in tiles)
                 {
-                    if(Mathf.Abs(tile.transform.position.x)-Mathf.Abs(collision.transform.position.x)<=0.5 && 
-                        Mathf.Abs(tile.transform.position.y)-Mathf.Abs(collision.transform.position.y)<=0.5) //&&
-                        //Mathf.Abs(tile.transform.position.x) - Mathf.Abs(collision.transform.position.x) >= -0.5 &&
-                        //Mathf.Abs(tile.transform.position.y) - Mathf.Abs(collision.transform.position.y) >= -0.5)
+                    if(Mathf.Abs(tile.transform.position.x)-Mathf.Abs(collision.transform.position.x)<=0.7 &&
+                        Mathf.Abs(tile.transform.position.y)-Mathf.Abs(collision.transform.position.y)<=0.7 &&
+                        Mathf.Abs(tile.transform.position.x) - Mathf.Abs(collision.transform.position.x) >= -0.7 &&
+                        Mathf.Abs(tile.transform.position.y) - Mathf.Abs(collision.transform.position.y) >= -0.7)
                     {
                         Destroy(tile);
                     }

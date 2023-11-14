@@ -15,7 +15,7 @@ public class Tile : MonoBehaviour
         //getting access to opacity and setting up health:
         spr = GetComponent<SpriteRenderer>();
         sprA = spr.color.a;
-        health = (int)(sprA / 0.2);
+        health = (int)(sprA / 0.3);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -26,7 +26,7 @@ public class Tile : MonoBehaviour
             //defining health and adjusting opacity
             health -= 1;
             Color oldColor = spr.color;
-            Color newColor = new Color(oldColor.r, oldColor.g, oldColor.b, oldColor.a - 0.2f);
+            Color newColor = new Color(oldColor.r, oldColor.g, oldColor.b, oldColor.a - 0.3f);
             spr.color = newColor;
 
             if (health <= 0)
