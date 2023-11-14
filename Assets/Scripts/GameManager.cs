@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public int life;
     public float speed;
     public bool explosive;
+    public string powerText;
 
     private void Awake()
     {

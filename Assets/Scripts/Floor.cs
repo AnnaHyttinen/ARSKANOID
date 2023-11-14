@@ -14,7 +14,7 @@ public class Floor : MonoBehaviour
     public GameObject ball;
     private string scene;
 
-    private float time = 2f;
+    private float time = 0.5f;
     public string levelToLoad;
     public static bool pause;
 
@@ -35,8 +35,9 @@ public class Floor : MonoBehaviour
         if (time <= 0.0f && scene != "Menu" && scene != "Ending")
         {   
             //updating the UI
-            text.GetComponent<Text>().text = "Life " + gameManager.life;
-            time = 2.0f;
+            text.GetComponent<Text>().text = "Life " + gameManager.life + 
+                "\n" + gameManager.powerText;
+            time = 0.5f;
 
             //loading a new scene
             GameObject[] tiles = GameObject.FindGameObjectsWithTag("Tile");
@@ -81,7 +82,8 @@ public class Floor : MonoBehaviour
             }
             else
             {
-                text.GetComponent<Text>().text = "Life " + gameManager.life;
+                text.GetComponent<Text>().text = "Life " + gameManager.life +
+                    "\n" + gameManager.powerText;
             }
         }
         else
