@@ -69,10 +69,10 @@ public class PowerUp : MonoBehaviour
                 sprite.color = Color.blue;
                 break;
             case 2:
-                sprite.color = Color.red;
+                sprite.color = Color.yellow;
                 break;
             case 3:
-                sprite.color = Color.yellow;
+                sprite.color = Color.red;
                 break;
             case 4:
                 sprite.color = Color.white;
@@ -96,13 +96,13 @@ public class PowerUp : MonoBehaviour
             gameManager.speed = 100.0f;
             gameManager.explosive = true;
         }
-        if (sprite.color == Color.red)
+        if (sprite.color == Color.yellow)
         {
             Debug.Log("fast");
             gameManager.speed = 180.0f;
             gameManager.explosive = true;
         }
-        if (sprite.color == Color.yellow)
+        if (sprite.color == Color.red)
         {
             Debug.Log("explosive");
             gameManager.explosive = true;

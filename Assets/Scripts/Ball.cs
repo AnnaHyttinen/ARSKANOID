@@ -31,14 +31,14 @@ public class Ball : MonoBehaviour
         //giving a push for a ball to begin with:
         GetComponent<Rigidbody2D>().velocity = Vector2.up * gameManager.speed;
 
-        color = Color.red;
+        color = GetComponent<SpriteRenderer>().color;
     }
 
     private void Update()
     {
         if (gameManager.explosive)
         {
-            GetComponent<SpriteRenderer>().color = Color.yellow;
+            GetComponent<SpriteRenderer>().color = Color.red;
         }
         else
         {
@@ -67,8 +67,10 @@ public class Ball : MonoBehaviour
                 GameObject[] tiles = GameObject.FindGameObjectsWithTag("Tile");
                 foreach (GameObject tile in tiles)
                 {
-                    if(Mathf.Abs(tile.transform.position.x)-Mathf.Abs(collision.transform.position.x)<0.2 && 
-                        Mathf.Abs(tile.transform.position.y)-Mathf.Abs(collision.transform.position.y)<0.2)
+                    if(Mathf.Abs(tile.transform.position.x)-Mathf.Abs(collision.transform.position.x)<=0.5 && 
+                        Mathf.Abs(tile.transform.position.y)-Mathf.Abs(collision.transform.position.y)<=0.5 &&
+                        Mathf.Abs(tile.transform.position.x) - Mathf.Abs(collision.transform.position.x) >= -0.5 &&
+                        Mathf.Abs(tile.transform.position.y) - Mathf.Abs(collision.transform.position.y) >= -0.5)
                     {
                         Destroy(tile);
                     }
