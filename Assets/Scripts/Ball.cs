@@ -31,14 +31,14 @@ public class Ball : MonoBehaviour
         //giving a push for a ball to begin with:
         GetComponent<Rigidbody2D>().velocity = Vector2.up * gameManager.speed;
 
-        color = GetComponent<SpriteRenderer>().color;
+        color = Color.red;
     }
 
     private void Update()
     {
         if (gameManager.explosive)
         {
-            GetComponent<SpriteRenderer>().color = Color.red;
+            GetComponent<SpriteRenderer>().color = Color.yellow;
         }
         else
         {
@@ -67,8 +67,8 @@ public class Ball : MonoBehaviour
                 GameObject[] tiles = GameObject.FindGameObjectsWithTag("Tile");
                 foreach (GameObject tile in tiles)
                 {
-                    if(tile.transform.position.x-collision.transform.position.x<0.5 && 
-                        tile.transform.position.y-collision.transform.position.y<0.5)
+                    if(Mathf.Abs(tile.transform.position.x)-Mathf.Abs(collision.transform.position.x)<0.2 && 
+                        Mathf.Abs(tile.transform.position.y)-Mathf.Abs(collision.transform.position.y)<0.2)
                     {
                         Destroy(tile);
                     }
@@ -79,7 +79,7 @@ public class Ball : MonoBehaviour
             {
                 Destroy(collision.gameObject);
                 gameManager.explosive = false;
-                gameManager.speed = 100;
+                gameManager.speed = 120;
                 explosiveCount = 0;
             }
         }

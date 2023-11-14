@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4381975455224373229
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2228376773665923277, guid: 60c2216ebcd460245a80800ed203ef2b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -47.273457
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228376773665923277, guid: 60c2216ebcd460245a80800ed203ef2b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -67.360374
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228376773665923277, guid: 60c2216ebcd460245a80800ed203ef2b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.4097979
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228376773665923277, guid: 60c2216ebcd460245a80800ed203ef2b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228376773665923277, guid: 60c2216ebcd460245a80800ed203ef2b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228376773665923277, guid: 60c2216ebcd460245a80800ed203ef2b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228376773665923277, guid: 60c2216ebcd460245a80800ed203ef2b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228376773665923277, guid: 60c2216ebcd460245a80800ed203ef2b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228376773665923277, guid: 60c2216ebcd460245a80800ed203ef2b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228376773665923277, guid: 60c2216ebcd460245a80800ed203ef2b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5953450091258592199, guid: 60c2216ebcd460245a80800ed203ef2b, type: 3}
+      propertyPath: m_Name
+      value: ObstacleSugar 1 Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 4371323814779714484, guid: 60c2216ebcd460245a80800ed203ef2b, type: 3}
+    - {fileID: 6901618205168075085, guid: 60c2216ebcd460245a80800ed203ef2b, type: 3}
+    - {fileID: 4528792702646759174, guid: 60c2216ebcd460245a80800ed203ef2b, type: 3}
+    - {fileID: 953430547978422539, guid: 60c2216ebcd460245a80800ed203ef2b, type: 3}
+    - {fileID: 8337516674978976970, guid: 60c2216ebcd460245a80800ed203ef2b, type: 3}
+    - {fileID: 6800804487721669025, guid: 60c2216ebcd460245a80800ed203ef2b, type: 3}
+    - {fileID: 4852840306244139675, guid: 60c2216ebcd460245a80800ed203ef2b, type: 3}
+    - {fileID: 938687277993133410, guid: 60c2216ebcd460245a80800ed203ef2b, type: 3}
+    - {fileID: 4638781078719154857, guid: 60c2216ebcd460245a80800ed203ef2b, type: 3}
+    - {fileID: 6274612535199392724, guid: 60c2216ebcd460245a80800ed203ef2b, type: 3}
+    - {fileID: 2460333671544594287, guid: 60c2216ebcd460245a80800ed203ef2b, type: 3}
+    - {fileID: 317929969544644965, guid: 60c2216ebcd460245a80800ed203ef2b, type: 3}
+    - {fileID: 2080248177594717904, guid: 60c2216ebcd460245a80800ed203ef2b, type: 3}
+    - {fileID: 679634491153867978, guid: 60c2216ebcd460245a80800ed203ef2b, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 60c2216ebcd460245a80800ed203ef2b, type: 3}

@@ -32,7 +32,7 @@ public class Floor : MonoBehaviour
         //setting up a timer for a power up color change, refreshing UI etc
         time -= Time.deltaTime;
 
-        if (time <= 0.0f && scene != "Menu")
+        if (time <= 0.0f && scene != "Menu" && scene != "Ending")
         {   
             //updating the UI
             text.GetComponent<Text>().text = "Life " + gameManager.life;
@@ -58,6 +58,12 @@ public class Floor : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.M)) 
         {
             gameManager.Level("Menu");
+        }
+
+        //checking for quit by esc
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
         }
     }
 

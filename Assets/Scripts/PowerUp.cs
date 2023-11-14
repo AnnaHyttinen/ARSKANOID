@@ -11,7 +11,7 @@ public class PowerUp : MonoBehaviour
     //variables for changing color, randomizing state and setting a timer
     private SpriteRenderer sprite;
     private int state;
-    private float targetTime = 1f;
+    private float targetTime = 2f;
 
     //variables for spawning of the rain
     private Vector3 location;
@@ -35,7 +35,7 @@ public class PowerUp : MonoBehaviour
         if (targetTime <= 0.0f)
         {
             TimerEnded();
-            targetTime = 1.0f;
+            targetTime = 2.0f;
         }
     }
 
@@ -72,7 +72,7 @@ public class PowerUp : MonoBehaviour
                 sprite.color = Color.red;
                 break;
             case 3:
-                sprite.color = Color.cyan;
+                sprite.color = Color.yellow;
                 break;
             case 4:
                 sprite.color = Color.white;
@@ -102,7 +102,7 @@ public class PowerUp : MonoBehaviour
             gameManager.speed = 180.0f;
             gameManager.explosive = true;
         }
-        if (sprite.color == Color.cyan)
+        if (sprite.color == Color.yellow)
         {
             Debug.Log("explosive");
             gameManager.explosive = true;
