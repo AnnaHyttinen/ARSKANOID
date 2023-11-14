@@ -38,10 +38,12 @@ public class Ball : MonoBehaviour
     {
         if (gameManager.explosive)
         {
+            //nice red ball, just like in the flag
             GetComponent<SpriteRenderer>().color = Color.red;
         }
         else
         {
+            //back to original color
             GetComponent<SpriteRenderer>().color = color;
         }
     }

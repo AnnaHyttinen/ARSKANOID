@@ -34,7 +34,7 @@ public class Tile : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-
+        //when rain hits a tile
         if (collision.gameObject.tag == "Rain")
         {
             Destroy(gameObject);

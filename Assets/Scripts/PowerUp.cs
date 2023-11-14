@@ -82,8 +82,10 @@ public class PowerUp : MonoBehaviour
 
     void Actions()
     {
+        //to get a color of power up
         sprite = GetComponentInChildren<SpriteRenderer>();
 
+        //power up actions
         if (sprite.color == Color.green)
         {
             gameManager.powerText = ("Life");

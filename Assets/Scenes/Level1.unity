@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6306821638917743827, guid: 2220425b8aeb6224abeb6a35ff258544, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 6306821638917743827, guid: 2220425b8aeb6224abeb6a35ff258544, type: 3}
       propertyPath: m_LocalPosition.z
@@ -392,7 +392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6306821638917743827, guid: 2220425b8aeb6224abeb6a35ff258544, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 6306821638917743827, guid: 2220425b8aeb6224abeb6a35ff258544, type: 3}
       propertyPath: m_LocalPosition.z
@@ -482,6 +482,7 @@ MonoBehaviour:
   life: 5
   speed: 100
   explosive: 0
+  powerText: 
 --- !u!1001 &241028226832483968
 PrefabInstance:
   m_ObjectHideFlags: 0
