@@ -35,7 +35,7 @@ public class Floor : MonoBehaviour
         if (time <= 0.0f && scene != "Menu" && scene != "Ending")
         {   
             //updating the UI
-            text.GetComponent<Text>().text = "Life " + gameManager.life + 
+            text.GetComponent<Text>().text = scene + "\nLife " + gameManager.life + 
                 "\n" + gameManager.powerText;
             time = 0.5f;
 
@@ -59,6 +59,8 @@ public class Floor : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.M)) 
         {
             gameManager.Level("Menu");
+            gameManager.life = 5;
+            gameManager.explosive = false;
         }
 
         //checking for quit by esc
@@ -82,7 +84,7 @@ public class Floor : MonoBehaviour
             }
             else
             {
-                text.GetComponent<Text>().text = "Life " + gameManager.life +
+                text.GetComponent<Text>().text = scene + "\nLife " + gameManager.life +
                     "\n" + gameManager.powerText;
             }
         }

@@ -117,11 +117,11 @@ RectTransform:
   - {fileID: 8245894406425444606}
   m_Father: {fileID: 8417600329603304533}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 91.17561, y: -106.48117}
-  m_SizeDelta: {x: 159.9073, y: 193.6084}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 11.221649, y: 316.7154}
+  m_SizeDelta: {x: 159.90729, y: 193.6084}
+  m_Pivot: {x: 0, y: 0}
 --- !u!222 &2907722799036795693
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -997,9 +997,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d767a2a075f9aae40bf64e952274f7ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 5
   text: {fileID: 1712656509357316147}
   ball: {fileID: 4971522526152325672, guid: 027f922dc70952047aeb5cb157ad2f66, type: 3}
+  levelToLoad: 
 --- !u!1 &7362061630970082642
 GameObject:
   m_ObjectHideFlags: 0
@@ -1233,9 +1233,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d767a2a075f9aae40bf64e952274f7ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 0
   text: {fileID: 1712656509357316147}
   ball: {fileID: 4971522526152325672, guid: 027f922dc70952047aeb5cb157ad2f66, type: 3}
+  levelToLoad: 
 --- !u!114 &4227697999501723131
 MonoBehaviour:
   m_ObjectHideFlags: 0

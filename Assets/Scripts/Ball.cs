@@ -90,6 +90,7 @@ public class Ball : MonoBehaviour
 
         if(collision.gameObject.tag == "Tile")
         {
+            //sound effect for hitting a tile
             sound.Play();
 
             //speeding up the ball:
