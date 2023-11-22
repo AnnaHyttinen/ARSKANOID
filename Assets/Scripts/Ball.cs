@@ -63,7 +63,7 @@ public class Ball : MonoBehaviour
         if(collision.gameObject.tag == "Tile" && gameManager.explosive == true)
         {
             sound = GetComponent<AudioSource>();
-            //explosive events: transform.position gives a relative location to the parent object, hence symmetry
+            //explosive events: symmetric pattern coded
             if (explosiveCount < 7)
             {
                 GameObject[] tiles = GameObject.FindGameObjectsWithTag("Tile");

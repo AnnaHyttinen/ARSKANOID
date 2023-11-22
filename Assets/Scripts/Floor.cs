@@ -32,7 +32,7 @@ public class Floor : MonoBehaviour
         //setting up a timer for a power up color change, refreshing UI etc
         time -= Time.deltaTime;
 
-        if (time <= 0.0f && scene != "Menu" && scene != "Ending")
+        if (time <= 0.0f && scene != "Menu" && scene != "Ending" && gameManager.life > 0)
         {   
             //updating the UI
             text.GetComponent<Text>().text = scene + "\nLife " + gameManager.life + 
