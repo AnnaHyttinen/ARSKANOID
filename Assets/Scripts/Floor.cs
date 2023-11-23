@@ -6,14 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class Floor : MonoBehaviour
 {
-    //introducing variables for the UI
     private GameManager gameManager;
     public GameObject text;
-
-    //introducing the ball, scene
     public GameObject ball;
-    private string scene;
 
+    private string scene;
     private float time = 0.5f;
     public string levelToLoad;
     public static bool pause;
@@ -21,15 +18,16 @@ public class Floor : MonoBehaviour
     private void Start()
     {
         gameManager = GameManager.manager;
-        //establishing the text element:
-        text = GetComponentInChildren<Floor>().text;
 
+        //establishing the UI text element:
+        text = GetComponentInChildren<Floor>().text;
+        
         scene = SceneManager.GetActiveScene().name;
     }
 
     void Update()
     {
-        //setting up a timer for a power up color change, refreshing UI etc
+        //setting up a timer for checking certain changes once in a while
         time -= Time.deltaTime;
 
         if (time <= 0.0f && scene != "Menu" && scene != "Ending" && gameManager.life > 0)
@@ -39,7 +37,7 @@ public class Floor : MonoBehaviour
                 "\n" + gameManager.powerText;
             time = 0.5f;
 
-            //loading a new scene
+            //loading a new scene whenever running out of tiles
             GameObject[] tiles = GameObject.FindGameObjectsWithTag("Tile");
             if (tiles.Length <= 0)
             {
@@ -47,7 +45,7 @@ public class Floor : MonoBehaviour
             }
         }
 
-        //checking for pause
+        //checking for pause button
         if(Input.GetKeyDown(KeyCode.P))
         {
             pause = !pause;
@@ -55,7 +53,7 @@ public class Floor : MonoBehaviour
             Debug.Log(pause);
         }
 
-        //checking for menu
+        //checking for menu button
         if(Input.GetKeyDown(KeyCode.M)) 
         {
             gameManager.Level("Menu");
@@ -88,7 +86,7 @@ public class Floor : MonoBehaviour
                     "\n" + gameManager.powerText;
             }
         }
-        else
+        else //anything else that could collide gets destroyed
         {
             Destroy(collision.gameObject);
         }

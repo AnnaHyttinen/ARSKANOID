@@ -974,16 +974,24 @@ PrefabInstance:
       value: Background
       objectReference: {fileID: 0}
     - target: {fileID: 8245894406425444606, guid: 507fb119cf4c6b14fbf68d56bbf9d59b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 353.3622
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245894406425444606, guid: 507fb119cf4c6b14fbf68d56bbf9d59b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 108.5981
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245894406425444606, guid: 507fb119cf4c6b14fbf68d56bbf9d59b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 15
+      value: 127
       objectReference: {fileID: 0}
     - target: {fileID: 8245894406425444606, guid: 507fb119cf4c6b14fbf68d56bbf9d59b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -263
+      value: -440
       objectReference: {fileID: 0}
     - target: {fileID: 8479478483459121146, guid: 507fb119cf4c6b14fbf68d56bbf9d59b, type: 3}
       propertyPath: m_Text
-      value: "P for pause, \nm for menu, \nesc to quit."
+      value: P for pause, m for menu, esc to quit.
       objectReference: {fileID: 0}
     - target: {fileID: 8479478483459121146, guid: 507fb119cf4c6b14fbf68d56bbf9d59b, type: 3}
       propertyPath: m_Color.a
@@ -999,7 +1007,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8479478483459121146, guid: 507fb119cf4c6b14fbf68d56bbf9d59b, type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8530371851750106327, guid: 507fb119cf4c6b14fbf68d56bbf9d59b, type: 3}
       propertyPath: m_Sprite
