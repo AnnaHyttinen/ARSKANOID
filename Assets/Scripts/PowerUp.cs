@@ -110,7 +110,10 @@ public class PowerUp : MonoBehaviour
         if (sprite.color == Color.white)
         {
             gameManager.powerText = ("Rain");
-            Rain(); Rain(); Rain(); Rain(); Rain(); Rain(); Rain();
+            for (int i = 0; i < 7; i++)
+            {
+                Rain();
+            }
         }
     }
 
