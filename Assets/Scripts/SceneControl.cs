@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneControl : MonoBehaviour
 {
-    //this is established just for the button
+    //eventually this got established just for the button
     public void Level1()
     {
         //new game button
